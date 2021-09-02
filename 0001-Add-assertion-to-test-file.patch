@@ -1,0 +1,36 @@
+From 366a52bbac24b36f90e9d2e1b06cdd6d32b66888 Mon Sep 17 00:00:00 2001
+From: Dabe Chua <79722048+4nOnym0vs@users.noreply.github.com>
+Date: Thu, 2 Sep 2021 04:37:56 +0000
+Subject: [PATCH] Add assertion to test file
+
+---
+ jpm_module_1/client_test.py | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/jpm_module_1/client_test.py b/jpm_module_1/client_test.py
+index af2bf26..71bd8d4 100644
+--- a/jpm_module_1/client_test.py
++++ b/jpm_module_1/client_test.py
+@@ -8,6 +8,9 @@ class ClientTest(unittest.TestCase):
+       {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+     ]
+     """ ------------ Add the assertion below ------------ """
++		for quote in quotes:
++			self.asserEqual(getDataPoint(quote), (quote['stock'], quote]'top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] + quote['top_ask']['price'])/2))
++		
+ 
+   def test_getDataPoint_calculatePriceBidGreaterThanAsk(self):
+     quotes = [
+@@ -15,6 +18,9 @@ class ClientTest(unittest.TestCase):
+       {'top_ask': {'price': 121.68, 'size': 4}, 'timestamp': '2019-02-11 22:06:30.572453', 'top_bid': {'price': 117.87, 'size': 81}, 'id': '0.109974697771', 'stock': 'DEF'}
+     ]
+     """ ------------ Add the assertion below ------------ """
++		for quote in quotes:
++			self.asserEqual(getDataPoint(quote), (quote['stock'], quote]'top_bid']['price'], quote['top_ask']['price'], (quote['top_bid']['price'] + quote['top_ask']['price'])/2))
++
+ 
+ 
+   """ ------------ Add more unit tests ------------ """
+-- 
+2.17.1
+
